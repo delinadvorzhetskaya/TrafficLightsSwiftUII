@@ -56,30 +56,6 @@ struct ContentView: View {
                 
                 nextColor()
                 
-//                switch lightColor {
-//                case .none:
-//                    lightColor = .red
-//                    fallthrough
-//                case .red:
-//                    redOpacity = 1
-//                    yellowOpacity = 0.3
-//                    greenOpacity = 0.3
-//
-//                    lightColor = .yellow
-//                case .yellow:
-//                    redOpacity = 0.3
-//                    yellowOpacity = 1
-//                    greenOpacity = 0.3
-//
-//                    lightColor = .green
-//                case .green:
-//                    redOpacity = 0.3
-//                    yellowOpacity = 0.3
-//                    greenOpacity = 1
-//
-//                    lightColor = .red
-//                }
-                
             } label: {
                 Text(buttonLabel)
                     .font(.title)
