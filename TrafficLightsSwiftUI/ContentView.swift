@@ -16,6 +16,31 @@ struct ContentView: View {
     
     @State private var lightColor: LightColor = .none
     
+    private func nextColor() {
+        switch lightColor {
+        case .none:
+            lightColor = .red
+            fallthrough
+        case .red:
+            redOpacity = 1
+            yellowOpacity = 0.3
+            greenOpacity = 0.3
+            
+            lightColor = .yellow
+        case .yellow:
+            redOpacity = 0.3
+            yellowOpacity = 1
+            greenOpacity = 0.3
+            
+            lightColor = .green
+        case .green:
+            redOpacity = 0.3
+            yellowOpacity = 0.3
+            greenOpacity = 1
+            
+            lightColor = .red
+        }
+    }
     
     var body: some View {
         VStack(spacing: 25) {
@@ -29,29 +54,31 @@ struct ContentView: View {
             Button {
                 buttonLabel = "Next"
                 
-                switch lightColor {
-                case .none:
-                    lightColor = .red
-                    fallthrough
-                case .red:
-                    redOpacity = 1
-                    yellowOpacity = 0.3
-                    greenOpacity = 0.3
-                    
-                    lightColor = .yellow
-                case .yellow:
-                    redOpacity = 0.3
-                    yellowOpacity = 1
-                    greenOpacity = 0.3
-                    
-                    lightColor = .green
-                case .green:
-                    redOpacity = 0.3
-                    yellowOpacity = 0.3
-                    greenOpacity = 1
-                    
-                    lightColor = .red
-                }
+                nextColor()
+                
+//                switch lightColor {
+//                case .none:
+//                    lightColor = .red
+//                    fallthrough
+//                case .red:
+//                    redOpacity = 1
+//                    yellowOpacity = 0.3
+//                    greenOpacity = 0.3
+//
+//                    lightColor = .yellow
+//                case .yellow:
+//                    redOpacity = 0.3
+//                    yellowOpacity = 1
+//                    greenOpacity = 0.3
+//
+//                    lightColor = .green
+//                case .green:
+//                    redOpacity = 0.3
+//                    yellowOpacity = 0.3
+//                    greenOpacity = 1
+//
+//                    lightColor = .red
+//                }
                 
             } label: {
                 Text(buttonLabel)
@@ -60,7 +87,11 @@ struct ContentView: View {
             
 
         }.padding()
+        
+        
     }
+    
+    
 }
 
 enum LightColor {
